@@ -23,7 +23,7 @@ class Post {
   static func insert(value: String){
     do {
       _ = try db.run(post.insert(text <- value))
-    } catch {
+    } catch let error {
       print("Error: \(error)")
     }
   }
