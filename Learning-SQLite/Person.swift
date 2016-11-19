@@ -11,7 +11,7 @@ import SQLite
 
 class Person {
   
-  private static let db = DB.instance!
+  private static let db = DB.instance
 
   private static let person = Table("person")
   
