@@ -9,16 +9,16 @@
 import Foundation
 import SQLite
 
-class Person {
+class Person: TableHandler {
   
   private static let db = DB.instance
 
-  private static let _person = Table("person")
-  private static let _post = Table("post")
+  private static let _person = T.Person
+  private static let _post = T.Post
   
-  private static let _person_id = Column.person_id
-  private static let _name = Column.name
-  private static let _text = Column.text
+  private static let _personID = C.person_id
+  private static let _name = C.name
+  private static let _text = C.text
   
   private static var _collection: Array<Row> = []
   
@@ -33,7 +33,7 @@ class Person {
     do {
       
       try db.run(_person.create { t in
-        t.column(_person_id, primaryKey: .autoincrement)
+        t.column(_personID, primaryKey: .autoincrement)
         t.column(_name)
       })
       
@@ -70,9 +70,9 @@ class Person {
     }
   }
   
-  static func delete(personRow: Row){
+  static func delete(row: Row){
     
-    let person = _person.filter(personRow[_person_id] == _person_id)
+    let person = _person.filter(row[_personID] == _personID)
     
     do {
       

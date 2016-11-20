@@ -9,7 +9,7 @@
 import Foundation
 import SQLite
 
-class Column {
+class C {
   
   static var person_id = Expression<Int64>("person_id")
   static var name = Expression<String>("name")

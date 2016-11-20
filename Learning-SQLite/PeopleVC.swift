@@ -41,7 +41,7 @@ class PeopleVC: UIViewController {
       let person = Person.collection[selectedIndex]
       
       personVC.person = person
-      personVC.name = person[Column.name]
+      personVC.name = person[C.name]
       personVC.posts = Post.selectFor(person: person)
       
     }
@@ -93,7 +93,7 @@ extension PeopleVC: UITableViewDelegate, UITableViewDataSource {
       
       let person = Person.collection[indexPath.row]
       
-      Person.delete(personRow: person)
+      Person.delete(row: person)
       
       Person.loadCollection()
       

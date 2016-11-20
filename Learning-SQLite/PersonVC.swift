@@ -61,7 +61,7 @@ extension PersonVC: UITableViewDelegate, UITableViewDataSource {
       
       let post = posts[indexPath.row]
       
-      cell.postText.text = post[Column.text]
+      cell.postText.text = post[C.text]
       
       return cell
     }
@@ -75,7 +75,7 @@ extension PersonVC: UITableViewDelegate, UITableViewDataSource {
       
       let post = posts[indexPath.row]
       
-      Post.delete(postRow: post)
+      Post.delete(row: post)
       
       posts = Post.selectFor(person: person)
      

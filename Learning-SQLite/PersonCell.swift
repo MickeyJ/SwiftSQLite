@@ -22,8 +22,8 @@ class PersonCell: UITableViewCell {
   
   func configure(person: Row){
     
-    id = person[Column.person_id]
-    nameLabel.text = person[Column.name]
+    id = person[C.person_id]
+    nameLabel.text = person[C.name]
     
   }
 

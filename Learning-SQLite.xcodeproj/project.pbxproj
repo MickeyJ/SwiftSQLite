@@ -19,10 +19,10 @@
 		700FC3B01DE1171B004F8922 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3AF1DE1171B004F8922 /* PersonCell.swift */; };
 		700FC3B21DE11E02004F8922 /* PersonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3B11DE11E02004F8922 /* PersonVC.swift */; };
 		700FC3B41DE125AD004F8922 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3B31DE125AD004F8922 /* PostCell.swift */; };
-		700FC3B71DE14501004F8922 /* test.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 700FC3B51DE14501004F8922 /* test.sqlite3 */; };
-		700FC3B81DE14501004F8922 /* test.sqlite3.sqbpro in Resources */ = {isa = PBXBuildFile; fileRef = 700FC3B61DE14501004F8922 /* test.sqlite3.sqbpro */; };
 		700FC3BA1DE15F98004F8922 /* NewPersonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3B91DE15F98004F8922 /* NewPersonVC.swift */; };
 		700FC3BC1DE16D95004F8922 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3BB1DE16D95004F8922 /* NewPostVC.swift */; };
+		700FC3BF1DE214D2004F8922 /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3BE1DE214D2004F8922 /* TableHandler.swift */; };
+		700FC3C11DE216E6004F8922 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3C01DE216E6004F8922 /* Table.swift */; };
 		F9CEB8375B9084FD13F5ECDD /* Pods_Learning_SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9F62A4A1FC4A467D49A91D /* Pods_Learning_SQLite.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +43,10 @@
 		700FC3AF1DE1171B004F8922 /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		700FC3B11DE11E02004F8922 /* PersonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonVC.swift; sourceTree = "<group>"; };
 		700FC3B31DE125AD004F8922 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		700FC3B51DE14501004F8922 /* test.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.sqlite3; sourceTree = "<group>"; };
-		700FC3B61DE14501004F8922 /* test.sqlite3.sqbpro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.sqlite3.sqbpro; sourceTree = "<group>"; };
 		700FC3B91DE15F98004F8922 /* NewPersonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPersonVC.swift; sourceTree = "<group>"; };
 		700FC3BB1DE16D95004F8922 /* NewPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
+		700FC3BE1DE214D2004F8922 /* TableHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
+		700FC3C01DE216E6004F8922 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		7F9F62A4A1FC4A467D49A91D /* Pods_Learning_SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learning_SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +92,7 @@
 		700CB3F81DDFEE82002890D6 /* Learning-SQLite */ = {
 			isa = PBXGroup;
 			children = (
+				700FC3BD1DE21497004F8922 /* Protocol */,
 				700FC39D1DE0C9F2004F8922 /* Model */,
 				700FC3AA1DE0DF2D004F8922 /* View */,
 				700FC3A91DE0DF1C004F8922 /* Controller */,
@@ -105,6 +106,7 @@
 			children = (
 				700FC3A01DE0CEFD004F8922 /* DB.swift */,
 				700FC3A41DE0D2E7004F8922 /* Column.swift */,
+				700FC3C01DE216E6004F8922 /* Table.swift */,
 				700FC3A21DE0D2A9004F8922 /* Person.swift */,
 				700FC3A61DE0D467004F8922 /* Post.swift */,
 			);
@@ -114,8 +116,6 @@
 		700FC3A81DE0DEE7004F8922 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				700FC3B51DE14501004F8922 /* test.sqlite3 */,
-				700FC3B61DE14501004F8922 /* test.sqlite3.sqbpro */,
 				700CB4021DDFEE82002890D6 /* LaunchScreen.storyboard */,
 				700CB3F91DDFEE82002890D6 /* AppDelegate.swift */,
 				700CB4001DDFEE82002890D6 /* Assets.xcassets */,
@@ -143,6 +143,14 @@
 				700FC3B31DE125AD004F8922 /* PostCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		700FC3BD1DE21497004F8922 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				700FC3BE1DE214D2004F8922 /* TableHandler.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		DEB59D83CBA1FE23F21C1177 /* Frameworks */ = {
@@ -216,11 +224,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				700FC3B81DE14501004F8922 /* test.sqlite3.sqbpro in Resources */,
 				700CB4041DDFEE82002890D6 /* LaunchScreen.storyboard in Resources */,
 				700CB4011DDFEE82002890D6 /* Assets.xcassets in Resources */,
 				700CB3FF1DDFEE82002890D6 /* Main.storyboard in Resources */,
-				700FC3B71DE14501004F8922 /* test.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,9 +288,11 @@
 				700FC3A31DE0D2A9004F8922 /* Person.swift in Sources */,
 				700FC3B21DE11E02004F8922 /* PersonVC.swift in Sources */,
 				700CB3FC1DDFEE82002890D6 /* PeopleVC.swift in Sources */,
+				700FC3BF1DE214D2004F8922 /* TableHandler.swift in Sources */,
 				700CB3FA1DDFEE82002890D6 /* AppDelegate.swift in Sources */,
 				700FC3BA1DE15F98004F8922 /* NewPersonVC.swift in Sources */,
 				700FC3A11DE0CEFD004F8922 /* DB.swift in Sources */,
+				700FC3C11DE216E6004F8922 /* Table.swift in Sources */,
 				700FC3B41DE125AD004F8922 /* PostCell.swift in Sources */,
 				700FC3A71DE0D467004F8922 /* Post.swift in Sources */,
 				700FC3A51DE0D2E7004F8922 /* Column.swift in Sources */,

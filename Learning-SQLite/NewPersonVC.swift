@@ -10,7 +10,6 @@ import UIKit
 
 class NewPersonVC: UIViewController {
 
-  
   @IBOutlet weak var newPersonField: UITextField!
   
   var peopleVC = PeopleVC()
@@ -40,12 +39,7 @@ class NewPersonVC: UIViewController {
       dismiss(animated: true, completion: nil)
       
     }
-      
-    
-    
-    
     
   }
-
 
 }

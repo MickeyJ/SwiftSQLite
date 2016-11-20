@@ -9,16 +9,16 @@
 import Foundation
 import SQLite
 
-class Post {
+class Post: TableHandler {
   
   private static let db = DB.instance
   
-  private static let _person = Table("person")
-  private static let _post = Table("post")
+  private static let _person = T.Person
+  private static let _post = T.Post
   
-  private static let _personID = Column.person_id
-  private static let _postID = Column.post_id
-  private static let _text = Column.text
+  private static let _personID = C.person_id
+  private static let _postID = C.post_id
+  private static let _text = C.text
   
   private static var _collection: Array<Row> = []
   
@@ -58,18 +58,18 @@ class Post {
     
   }
   
-  static func insert(person: Int64, text: String){
+  static func insert(personID: Int64, text: String){
     do {
-      _ = try db.run(_post.insert(_personID <- person, _text <- text))
+      _ = try db.run(_post.insert(_personID <- personID, _text <- text))
     } catch let error {
       print("Error: \(error)")
     }
   }
   
   
-  static func delete(postRow: Row){
+  static func delete(row: Row){
     
-    let post = _post.filter(postRow[_postID] == _postID)
+    let post = _post.filter(row[_postID] == _postID)
     
     do {
       

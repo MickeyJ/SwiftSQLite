@@ -31,7 +31,7 @@ class NewPostVC: UIViewController {
       
       let person = personVC.person!
       
-      Post.insert(person: person[Column.person_id], text: text)
+      Post.insert(personID: person[C.person_id], text: text)
       
       personVC.posts = Post.selectFor(person: person)
       
@@ -40,7 +40,6 @@ class NewPostVC: UIViewController {
       dismiss(animated: true, completion: nil)
     }
     
-    
-    
   }
+  
 }
