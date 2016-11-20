@@ -10,7 +10,10 @@ import Foundation
 import SQLite
 
 class Column {
-  static var id = Expression<Int64>("id")
+  
+  static var person_id = Expression<Int64>("person_id")
   static var name = Expression<String>("name")
+  
+  static var post_id = Expression<Int64>("post_id")
   static var text = Expression<String>("text")
 }

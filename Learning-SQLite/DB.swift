@@ -11,24 +11,24 @@ import SQLite
 
 class DB {
   
-  static let instance: Connection = try! connect()
+  static let instance = DB().connection!
   
-  private static let path = "/Users/Mickey/swift/Learning-SQLite/Learning-SQLite"
+  private var connection: Connection!
   
-  static func connect() throws -> Connection {
-
-      do {
-        
-        return try Connection("\(path)/test.sqlite3")
-        
-      } catch let error {
-        
-        print(error)
-        
-        throw error
-        
-      }
+  private let path = "/Users/Mickey/swift/Learning-SQLite/Learning-SQLite"
+  
+  init() {
     
+    do {
+      
+      connection = try Connection("\(path)/test.sqlite3")
+      
+      
+    } catch let error {
+      
+      print(error)
+      
+    }
     
   }
   

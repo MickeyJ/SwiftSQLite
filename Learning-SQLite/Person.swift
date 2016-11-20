@@ -13,36 +13,44 @@ class Person {
   
   private static let db = DB.instance
 
-  private static let person = Table("person")
+  private static let _person = Table("person")
+  private static let _post = Table("post")
   
-  private static let id = Column.id
-  private static let name = Column.name
+  private static let _person_id = Column.person_id
+  private static let _name = Column.name
+  private static let _text = Column.text
   
-  static var collection: Array<Row> = []
+  private static var _collection: Array<Row> = []
   
-  static func insert(value: String) {
-    do {
-      _ = try db.run(person.insert(name <- value))
-    } catch let error {
-      print("Error: \(error)")
+  static var collection: Array<Row> {
+    get {
+      return _collection
     }
   }
   
-  static func selectAll(){
-    
+  static func insert(name: String) -> Int64? {
     do {
-      let selection = try db.prepare(person)
       
-      print("")
-      print("     People")
-      print("————————————————")
-      for row in selection {
-        print("id: \(row[id]), name: \(row[name])")
-        collection.append(row)
-      }
+      return try db.run(_person.insert(_name <- name))
       
     } catch let error {
+      
       print("Error: \(error)")
+      
+      return nil
+    }
+  }
+  
+  static func load(){
+    
+    do {
+      
+      _collection = Array(try db.prepare(_person))
+      
+    } catch let error {
+      
+      print("Error: \(error)")
+      
     }
     
   }
