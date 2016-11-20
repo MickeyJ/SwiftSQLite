@@ -23,6 +23,8 @@
 		700FC3BC1DE16D95004F8922 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3BB1DE16D95004F8922 /* NewPostVC.swift */; };
 		700FC3BF1DE214D2004F8922 /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3BE1DE214D2004F8922 /* TableHandler.swift */; };
 		700FC3C11DE216E6004F8922 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3C01DE216E6004F8922 /* Table.swift */; };
+		700FC3C31DE219FA004F8922 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3C21DE219FA004F8922 /* BaseTextField.swift */; };
+		700FC3C51DE21CF1004F8922 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3C41DE21CF1004F8922 /* CornerRadius.swift */; };
 		F9CEB8375B9084FD13F5ECDD /* Pods_Learning_SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9F62A4A1FC4A467D49A91D /* Pods_Learning_SQLite.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		700FC3BB1DE16D95004F8922 /* NewPostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
 		700FC3BE1DE214D2004F8922 /* TableHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
 		700FC3C01DE216E6004F8922 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		700FC3C21DE219FA004F8922 /* BaseTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
+		700FC3C41DE21CF1004F8922 /* CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		7F9F62A4A1FC4A467D49A91D /* Pods_Learning_SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learning_SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +145,8 @@
 				700CB3FD1DDFEE82002890D6 /* Main.storyboard */,
 				700FC3AF1DE1171B004F8922 /* PersonCell.swift */,
 				700FC3B31DE125AD004F8922 /* PostCell.swift */,
+				700FC3C21DE219FA004F8922 /* BaseTextField.swift */,
+				700FC3C41DE21CF1004F8922 /* CornerRadius.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -287,6 +293,8 @@
 			files = (
 				700FC3A31DE0D2A9004F8922 /* Person.swift in Sources */,
 				700FC3B21DE11E02004F8922 /* PersonVC.swift in Sources */,
+				700FC3C51DE21CF1004F8922 /* CornerRadius.swift in Sources */,
+				700FC3C31DE219FA004F8922 /* BaseTextField.swift in Sources */,
 				700CB3FC1DDFEE82002890D6 /* PeopleVC.swift in Sources */,
 				700FC3BF1DE214D2004F8922 /* TableHandler.swift in Sources */,
 				700CB3FA1DDFEE82002890D6 /* AppDelegate.swift in Sources */,

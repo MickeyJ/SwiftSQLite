@@ -78,6 +78,12 @@ class Person: TableHandler {
       
       _ = try db.run(person.delete())
       
+      let personPosts = Post.selectFor(person: row)
+      
+      for post in personPosts {
+        Post.delete(row: post)
+      }
+      
     } catch let error {
       
       print(error)
