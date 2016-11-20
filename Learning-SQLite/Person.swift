@@ -28,6 +28,20 @@ class Person {
     }
   }
   
+  static func loadCollection(){
+    
+    do {
+      
+      _collection = Array(try db.prepare(_person))
+      
+    } catch let error {
+      
+      print("Error: \(error)")
+      
+    }
+    
+  }
+  
   static func insert(name: String) -> Int64? {
     do {
       
@@ -41,18 +55,6 @@ class Person {
     }
   }
   
-  static func load(){
-    
-    do {
-      
-      _collection = Array(try db.prepare(_person))
-      
-    } catch let error {
-      
-      print("Error: \(error)")
-      
-    }
-    
-  }
+  
   
 }

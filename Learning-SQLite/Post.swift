@@ -27,6 +27,18 @@ class Post {
     }
   }
   
+  static func loadCollection(){
+    
+    do {
+      
+      _collection = Array(try db.prepare(_post))
+      
+    } catch let error {
+      print("Error: \(error)")
+    }
+    
+  }
+  
   static func insert(person: Int64, text: String){
     do {
       _ = try db.run(_post.insert(_personID <- person, _text <- text))
@@ -35,46 +47,29 @@ class Post {
     }
   }
   
-  static func selectAll(){
+  
+  static func delete(postRow: Row){
+    
+    let post = _post.filter(postRow[_postID] == _postID)
     
     do {
       
-      _collection = Array(try db.prepare(_post))
-      
-      print("")
-      print("     Posts")
-      print("————————————————")
-      for row in collection {
-        
-        print(
-          "person_id: \(row[_personID])",
-          "post_id: \(row[_postID])",
-          "text: '\(row[_text])'",
-          separator: ", "
-        )
-        
-        _collection.append(row)
-      }
+      _ = try db.run(post.delete())
       
     } catch let error {
-      print("Error: \(error)")
+      
+      print(error)
+      
     }
     
   }
+  
 
   static func selectFor(person: Row) -> Array<Row> {
     
     let query = _post.filter(_personID == person[_personID])
     
     do {
-      
-      print("")
-      print("     Person - Posts      ")
-      print("—————————————————————————")
-      
-      for post in try db.prepare(query) {
-        print("person_id: \(post[_personID]), text: \(post[_text])")
-      }
       
       return Array(try db.prepare(query))
       

@@ -16,6 +16,8 @@ class PersonVC: UIViewController {
   
   var name: String!
   
+  
+  var person: Row!
   var posts: Array<Row> = []
 
   override func viewDidLoad() {
@@ -29,10 +31,9 @@ class PersonVC: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     
-    nameLabel.text = name
+    nameLabel.text = "\(name!)s Posts"
     
   }
-
 
 }
 
@@ -58,6 +59,21 @@ extension PersonVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     return UITableViewCell()
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    if editingStyle == .delete {
+      
+      let post = posts[indexPath.row]
+      
+      Post.delete(postRow: post)
+      
+      posts = Post.selectFor(person: person)
+     
+      tableView.reloadData()
+    }
+    
   }
   
 }

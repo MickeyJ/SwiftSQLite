@@ -21,11 +21,12 @@ class PeopleVC: UIViewController {
 //      Post.insert(person: joeJoe, text: "My name Joe Joe")
 //    }
 
-    Person.load()
+    Person.loadCollection()
     
-//    Post.selectAll()
+//    Post.loadCollection()
 //    let person = Person.collection[2][Column.person_id]
-//    Post.insert(person: person, text: "cheep cheep. My name Joe Joe")
+//    Post.insert(person: person, text: "cheep cheep")
+//    Post.insert(person: person, text: "I'm Joe Joe")
 //    Post.selectFor(person: person)
 
     
@@ -39,12 +40,13 @@ class PeopleVC: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-    let nextVC = segue.destination as! PersonVC
+    let personVC = segue.destination as! PersonVC
     
     let person = Person.collection[selectedIndex]
     
-    nextVC.name = person[Column.name]
-    nextVC.posts = Post.selectFor(person: person)
+    personVC.person = person
+    personVC.name = person[Column.name]
+    personVC.posts = Post.selectFor(person: person)
     
   }
 
