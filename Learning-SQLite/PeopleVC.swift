@@ -17,10 +17,6 @@ class PeopleVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    if let joeJoe: Int64 = Person.insert(name: "Joe Joe") {
-//      Post.insert(person: joeJoe, text: "My name Joe Joe")
-//    }
-
     Person.loadCollection()
     
 //    Post.loadCollection()
@@ -40,13 +36,20 @@ class PeopleVC: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-    let personVC = segue.destination as! PersonVC
+    if let personVC: PersonVC = segue.destination as? PersonVC {
+      
+      let person = Person.collection[selectedIndex]
+      
+      personVC.person = person
+      personVC.name = person[Column.name]
+      personVC.posts = Post.selectFor(person: person)
+      
+    }
     
-    let person = Person.collection[selectedIndex]
-    
-    personVC.person = person
-    personVC.name = person[Column.name]
-    personVC.posts = Post.selectFor(person: person)
+    if let newPersonVC: NewPersonVC = segue.destination as? NewPersonVC {
+      
+      newPersonVC.peopleVC = self
+    }
     
   }
 
@@ -81,6 +84,21 @@ extension PeopleVC: UITableViewDelegate, UITableViewDataSource {
     selectedIndex = indexPath.row
     
     performSegue(withIdentifier: "ShowPerson", sender: nil)
+    
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    if editingStyle == .delete {
+      
+      let person = Person.collection[indexPath.row]
+      
+      Person.delete(personRow: person)
+      
+      Person.loadCollection()
+      
+      tableView.reloadData()
+    }
     
   }
   

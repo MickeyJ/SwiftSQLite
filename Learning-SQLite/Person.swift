@@ -28,6 +28,21 @@ class Person {
     }
   }
   
+  static func create(){
+    
+    do {
+      
+      try db.run(_person.create { t in
+        t.column(_person_id, primaryKey: .autoincrement)
+        t.column(_name)
+      })
+      
+    } catch {
+      
+    }
+    
+  }
+  
   static func loadCollection(){
     
     do {
@@ -55,6 +70,20 @@ class Person {
     }
   }
   
-  
+  static func delete(personRow: Row){
+    
+    let person = _person.filter(personRow[_person_id] == _person_id)
+    
+    do {
+      
+      _ = try db.run(person.delete())
+      
+    } catch let error {
+      
+      print(error)
+      
+    }
+    
+  }
   
 }

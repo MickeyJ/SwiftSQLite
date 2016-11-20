@@ -16,7 +16,6 @@ class PersonVC: UIViewController {
   
   var name: String!
   
-  
   var person: Row!
   var posts: Array<Row> = []
 
@@ -32,6 +31,15 @@ class PersonVC: UIViewController {
     super.viewWillAppear(true)
     
     nameLabel.text = "\(name!)s Posts"
+    
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    if let newPostVC: NewPostVC = segue.destination as? NewPostVC {
+      
+      newPostVC.personVC = self
+    }
     
   }
 

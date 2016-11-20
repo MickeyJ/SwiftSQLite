@@ -13,6 +13,7 @@ class Post {
   
   private static let db = DB.instance
   
+  private static let _person = Table("person")
   private static let _post = Table("post")
   
   private static let _personID = Column.person_id
@@ -35,6 +36,24 @@ class Post {
       
     } catch let error {
       print("Error: \(error)")
+    }
+    
+  }
+  
+  static func create(){
+    
+    do {
+      
+      try db.run(_post.create { t in
+        t.column(_postID, primaryKey: .autoincrement)
+        t.column(_personID)
+        t.column(_text)
+      })
+      
+    } catch {
+      
+      
+      
     }
     
   }
@@ -81,6 +100,5 @@ class Post {
     }
     
   }
-
   
 }

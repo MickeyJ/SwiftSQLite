@@ -15,13 +15,15 @@ class DB {
   
   private var connection: Connection!
   
-  private let path = "/Users/Mickey/swift/Learning-SQLite/Learning-SQLite"
+  private let file = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("test.sqlite3")
   
   init() {
     
+    print(file.path)
+    
     do {
       
-      connection = try Connection("\(path)/test.sqlite3")
+      connection = try Connection(file.path)
       
       
     } catch let error {
