@@ -14,8 +14,6 @@ class PersonVC: UIViewController {
   @IBOutlet weak var postTable: UITableView!
   @IBOutlet weak var nameLabel: UILabel!
   
-  var name: String!
-  
   var person: Row!
   var posts: Array<Row> = []
 
@@ -30,7 +28,7 @@ class PersonVC: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     
-    nameLabel.text = "\(name!)s Posts"
+    nameLabel.text = "\(person[C.name])s Posts"
     
   }
   

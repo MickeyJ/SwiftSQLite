@@ -41,7 +41,6 @@ class PeopleVC: UIViewController {
       let person = Person.collection[selectedIndex]
       
       personVC.person = person
-      personVC.name = person[C.name]
       personVC.posts = Post.selectFor(person: person)
       
     }
