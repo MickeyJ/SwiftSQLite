@@ -37,7 +37,9 @@ class Person: TableHandler {
         t.column(_name)
       })
       
-    } catch {
+    } catch let error {
+      
+      print(error)
       
     }
     
@@ -78,11 +80,17 @@ class Person: TableHandler {
       
       _ = try db.run(person.delete())
       
-      let personPosts = Post.selectFor(person: row)
+      let personPosts = Post.select(for: row)
       
-      for post in personPosts {
-        Post.delete(row: post)
+      if !personPosts.isEmpty {
+        
+        for post in personPosts {
+          Post.delete(row: post)
+        }
+        
       }
+      
+      
       
     } catch let error {
       

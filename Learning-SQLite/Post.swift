@@ -84,7 +84,7 @@ class Post: TableHandler {
   }
   
 
-  static func selectFor(person: Row) -> Array<Row> {
+  static func select(for person: Row) -> Array<Row> {
     
     let query = _post.filter(_personID == person[_personID])
     

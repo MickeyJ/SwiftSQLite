@@ -33,7 +33,7 @@ class NewPostVC: UIViewController {
       
       Post.insert(personID: person[C.person_id], text: text)
       
-      personVC.posts = Post.selectFor(person: person)
+      personVC.posts = Post.select(for: person)
       
       personVC.postTable.reloadData()
       

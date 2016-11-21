@@ -75,7 +75,7 @@ extension PersonVC: UITableViewDelegate, UITableViewDataSource {
       
       Post.delete(row: post)
       
-      posts = Post.selectFor(person: person)
+      posts = Post.select(for: person)
      
       tableView.reloadData()
     }
